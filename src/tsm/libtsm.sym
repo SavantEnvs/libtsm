@@ -159,3 +159,9 @@ global:
 	tsm_screen_get_cursor_style;
 	tsm_screen_set_cursor_style;
 } LIBTSM_4_6;
+
+LIBTSM_4_8 {
+global:
+	tsm_screen_get_cursor_blinking_rate_ms;
+	tsm_screen_set_cursor_blinking_rate_ms;
+} LIBTSM_4_7;

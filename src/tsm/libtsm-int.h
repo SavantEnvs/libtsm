@@ -149,6 +149,7 @@ struct tsm_screen {
 	unsigned int cursor_y;			/* current cursor y-pos */
 
 	enum tsm_screen_cursor_style cstyle;	/* cursor shape */
+	uint32_t blinking_rate_ms;				/* cursor blinking rate */
 
 	/* tab ruler */
 	bool *tab_ruler;			/* tab-flag for all cells of one row */

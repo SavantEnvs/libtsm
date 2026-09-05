@@ -309,6 +309,9 @@ const struct tsm_screen_cell *tsm_screen_draw2(struct tsm_screen *con);
 enum tsm_screen_cursor_style tsm_screen_get_cursor_style(struct tsm_screen *con);
 void tsm_screen_set_cursor_style(struct tsm_screen *con, enum tsm_screen_cursor_style type);
 
+uint32_t tsm_screen_get_cursor_blinking_rate_ms(struct tsm_screen *con);
+void tsm_screen_set_cursor_blinking_rate_ms(struct tsm_screen *con, uint32_t ms);
+
 /** @} */
 
 /**

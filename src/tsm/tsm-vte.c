@@ -2171,6 +2171,11 @@ static void do_csi(struct tsm_vte *vte, uint32_t data)
 				vte->led_cb(vte, vte->led_state, vte->led_data);
 		}
 		break;
+	case ']': /* Cursor blinking rate */
+		/* This behavior is similar to agetty */
+		if (vte->csi_argv[0] == 16 && vte->csi_argc >= 2)
+			tsm_screen_set_cursor_blinking_rate_ms(vte->con, vte->csi_argv[1]);
+		break;
 	default:
 		llog_debug(vte, "unhandled CSI sequence %c", data);
 	}

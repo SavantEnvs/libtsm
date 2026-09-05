@@ -483,6 +483,7 @@ int tsm_screen_new(struct tsm_screen **out, tsm_log_t log, void *log_data)
 	con->def_attr.fr = 255;
 	con->def_attr.fg = 255;
 	con->def_attr.fb = 255;
+	con->blinking_rate_ms = 500;
 	shl_dlist_init(&con->sb.list);
 
 	ret = tsm_symbol_table_new(&con->sym_table);
@@ -1689,4 +1690,27 @@ void tsm_screen_set_cursor_style(struct tsm_screen *con, enum tsm_screen_cursor_
 		return;
 
 	con->cstyle = type;
+}
+
+SHL_EXPORT
+uint32_t tsm_screen_get_cursor_blinking_rate_ms(struct tsm_screen *con)
+{
+	if (!con)
+		return 0;
+
+	return con->blinking_rate_ms;
+}
+
+SHL_EXPORT
+void tsm_screen_set_cursor_blinking_rate_ms(struct tsm_screen *con, uint32_t ms)
+{
+	if (!con)
+		return;
+
+	if (ms < 50)
+		ms = 50;
+	if (ms > 5000)
+		ms = 5000;
+
+	con->blinking_rate_ms = ms;
 }
