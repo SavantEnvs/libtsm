@@ -1,0 +1,7 @@
+# origin: https://app.mayhem.security/mayhemheroes/libtsm/libtsm-fuzzer/12
+project: savantenvs/libtsm
+target: libtsm-fuzzer-buggy-mhh-run-12
+
+cmds:
+  - cmd: /mayhem/libtsm_fuzzer
+    libfuzzer: true
